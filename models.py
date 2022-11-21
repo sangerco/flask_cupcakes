@@ -29,6 +29,8 @@ class Cupcake(db.Model):
     def serialize(self):
         return {
             'id': self.id,
-            'title': self.title,
-            'done': self.done
+            'flavor': self.flavor,
+            'size': self.size,
+            'rating': self.rating,
+            'image': self.image
         }

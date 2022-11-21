@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Cupcake Mania!{% endblock %}
+
+{% block content%}
+<div class="container">
+    <h1 class="display-2 text-center">Cupcake Mania!</h1>
+    <table class="table table-striped">
+        <thead>
+            <th>Flavor</th>
+            <th>Size</th>
+            <th>Rating</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for cupcake in cupcakes %}
+            <tr>
+                <td><a href='/cupcakes/{{cupcake.id}}'>{{cupcake.flavor}}</a></td>
+                <td>{{cupcake.size}}</td>
+                <td>{{cupcake.rating}}</td>
+                <td><img src="{{cupcake.image}}" alt="{{cupcake.flavor}}" height="100px"></td>
+                <td><button class="edit-cupcake btn-sm btn-primary" data-id="{{cupcake.id}}">Edit</button></td>
+                <td><button class="delete-cupcake btn-sm btn-danger" data-id="{{cupcake.id}}">Delete</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button id='addCupcakeBtn' class="btn btn-success btn-large">Add Cupcake</button>
+</div>
+
+{% endblock %}
